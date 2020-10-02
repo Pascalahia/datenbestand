@@ -17,8 +17,7 @@ class DatasetForm(forms.ModelForm):
         gender_field = self.cleaned_data.get('gender_field', '')
         city_field = self.cleaned_data.get('city_field', '')
         csv = pd.read_csv(csv_file)
-       # import ipdb;
-        #ipdb.set_trace();
+       # import ipdb; ipdb.set_trace();
         if gender_field != '':
 
             csv[gender_field].describe()
