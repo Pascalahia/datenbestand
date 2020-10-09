@@ -1,0 +1,35 @@
+container {
+  background: rgb(0, 0, 0);
+  padding: 20px 30px;
+  max-width: 940px;
+  margin: 0;
+}
+
+.card {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #d3d3d3;
+  -webkit-box-shadow: -1px 1px 10px -4px rgba(59, 57, 59, 1);
+  -moz-box-shadow: -1px 1px 10px -4px rgba(59, 57, 59, 1);
+  box-shadow: -1px 1px 10px -4px rgba(59, 57, 59, 1);
+  min-height: 250px;
+}
+
+body,
+html {
+  background-color: rgb(255, 255, 255);
+}
+
+
+ul.menu {
+  list-style: none;
+  position: absolute;
+  z-index: 100;
+  min-width: 20em;
+  text-align: left;
+}
+
+ul.menu li {
+  margin-top: 1em;
+  position: relative;
+}

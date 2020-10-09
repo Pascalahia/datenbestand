@@ -18,6 +18,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
        <!--<link href="{% static 'bootstrap/css/scrolling-nav.css' %}" rel="stylesheet">-->
         <link href="{% static 'Boostrap/css/styles.css' %}" rel="stylesheet">
+        <link href= "{%static 'css/base.css'%}" rel= "stylesheet">
 
     </head>
     <body id="page-top">
@@ -48,8 +49,34 @@
         <section class="page-section" id="services">
             <div class="container">
                 <div class="text-center">
+
                     <h2 class="section-heading text-uppercase">Services</h2>
-                    <h3 class="section-subheading text-muted">New container will come hier;) .</h3>
+                        <div class="row">
+                     <!--Right Part-->
+                           <div class="col-md-6 col-sm-12">
+                                 <!--<div id="app"></div>-->
+                            {% if dataset_queryset %}
+                               <ul>
+                    {% for information in dataset %}
+                     <li>{{ dataset.information }} </li>
+                                {{ endfor }}
+                                </ul>
+                            {% else %}
+                        <p>No Dataset are available.</p>
+                                {% endif %}
+                            </div>
+
+                    <!--Right Part-->
+                        <div class="col-md-6 col-sm-12">
+                            <!--Box for the information-->
+                            <div class="card">
+                                <div id="inf_bag">
+                                    <p>Click on the Graph to find out more information.</p>
+                                 </div>
+                            </div>
+                        </div>
+                        </div>
+
                 </div>
             </div>
         </section>
