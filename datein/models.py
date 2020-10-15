@@ -4,7 +4,8 @@ import csv
 # Create your models here.
 class Dataset(models.Model):
     file_name = models.CharField(max_length=255)
-    information = models.TextField()
+    information = models.TextField(default='summary')
+    #data_len = models.TextField(default='csv_length')
     cities_covered = models.TextField(default='cities')
     age_covered = models.TextField(default='age')
     income_covered = models.TextField(default='income')

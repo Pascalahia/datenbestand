@@ -54,24 +54,34 @@
                         <div class="row">
                      <!--Right Part-->
                            <div class="col-md-6 col-sm-12">
-                                 <!--<div id="app"></div>-->
-                            {% if dataset_queryset %}
+                            <!--<div id="app"></div>-->
+                                <button type="button" onclick="get_element()">{{ data.file_name }}</button>
+
+
+                              <!-- {%for data in dataset %}
+
+                               <button type="button" onclick="get_element()">{{ data.file_name }}</button>
+
+                               {% endfor %}-->
                                <ul>
-                    {% for information in dataset %}
-                     <li>{{ dataset.information }} </li>
-                                {{ endfor }}
-                                </ul>
-                            {% else %}
-                        <p>No Dataset are available.</p>
-                                {% endif %}
-                            </div>
+
+                                    <!--<li>{{ data.age_covered }}</li>-->
+                                    <!-- {{ information }}-->
+                               </ul>
+
+                           </div>
 
                     <!--Right Part-->
                         <div class="col-md-6 col-sm-12">
                             <!--Box for the information-->
                             <div class="card">
                                 <div id="inf_bag">
-                                    <p>Click on the Graph to find out more information.</p>
+                                    <p>Click on the button to find out more information.</p>
+
+                                     <div id="inf" style="visibility:hidden">
+                                       {{ information }}
+                                    </div>
+
                                  </div>
                             </div>
                         </div>
@@ -79,6 +89,14 @@
 
                 </div>
             </div>
+        </section>
+
+        <section class="page-section" id="Graph">
+
+            <div id="page2">
+                {{"Hello Word"}}
+            </div>
+
         </section>
 
         <!-- Contact-->
@@ -145,6 +163,7 @@
         <script src="{% static 'Boostrap/assets/mail/contact_me.js' %}"></script>
         <!-- Core theme JS-->
         <script src="{% static 'Boostrap/js/scripts.js' %}"></script>
-        <script src="{% static 'js/base.js' %}"></script>
+        <script src="{% static 'js/allbase.js' %}"></script>
     </body>
+
 </html>
