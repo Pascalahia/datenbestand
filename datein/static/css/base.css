@@ -4,6 +4,9 @@ container {
   max-width: 940px;
   margin: 0;
 }
+#inf_bag{
+ background-color:green;
+}
 
 .card {
   padding: 10px;

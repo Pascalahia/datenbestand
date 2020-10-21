@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -46,59 +46,15 @@
             </div>
         </header>
         <!-- Services-->
-        <section class="page-section" id="services">
-            <div class="container">
-                <div class="text-center">
-                   <div id=" inf_bag">
-                    <ul>
-                        <h3>Hier sind sind die hochgeladene Daten! </h3>
-                    {% for d in data %}
-                       <li><a href="detail/{{d.id}}">{{d.name}}</a></li>
-                    {% endfor %}
-                    </ul>
-                   </div>
-                </div>
-            </div>
-        </section>
+        {% for key, val in data_object.information.items %}
+            {{key}} : {{val}} </br>
+        {% endfor %}
 
+        <div class="container">
+            <canvas id="age_chart">
 
-        <!-- Contact-->
-        <section class="page-section" id="contact">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-                <form id="contactForm" name="sentMessage" novalidate="novalidate">
-                    <div class="row align-items-stretch mb-5">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name." />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address." />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="form-group mb-md-0">
-                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number." />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-group-textarea mb-md-0">
-                                <textarea class="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <div id="success"></div>
-                        <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Send Message</button>
-                    </div>
-                </form>
-            </div>
-        </section>
+            </canvas>
+        </div>
         <!-- Footer-->
         <footer class="footer py-4">
             <div class="container">
@@ -117,16 +73,18 @@
             </div>
         </footer>
         <!-- Bootstrap core JS-->
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
         <!-- Contact form JS-->
         <script src="{% static 'Boostrap/assets/mail/jqBootstrapValidation.js' %}"></script>
         <script src="{% static 'Boostrap/assets/mail/contact_me.js' %}"></script>
         <!-- Core theme JS-->
         <script src="{% static 'Boostrap/js/scripts.js' %}"></script>
-        <script src="{% static 'js/base.js' %}"></script>
+        <script src="{% static 'js/allbase.js' %}"></script>
     </body>
 
 </html>
