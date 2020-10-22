@@ -46,10 +46,13 @@
             </div>
         </header>
         <!-- Services-->
+        {% autoescape off %}<script>var mydata_object = {{ data_object }};</script>{% endautoescape %}
+
         {% for key, val in data_object.information.items %}
             {{key}} : {{val}} </br>
         {% endfor %}
-
+        <button onclick="myfunction()">Show</button>
+        <div id="q1"></div>
         <div class="container">
             <canvas id="age_chart">
 
@@ -84,7 +87,7 @@
         <script src="{% static 'Boostrap/assets/mail/contact_me.js' %}"></script>
         <!-- Core theme JS-->
         <script src="{% static 'Boostrap/js/scripts.js' %}"></script>
-        <script src="{% static 'js/allbase.js' %}"></script>
+        <script src="{% static 'js/base.js' %}"></script>
     </body>
 
 </html>
