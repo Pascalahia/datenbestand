@@ -10,7 +10,7 @@ function myfunction(){
 
     data = start["information"];
     var qlist =[];
-
+    var rawqlist = [];
     for(var key in data){
         if (key == "gender_information"){
             console.log("was gefunden undzwar " + key );
@@ -41,7 +41,7 @@ function myfunction(){
             var res = "Die Qualität von gender ist " + finquality + " ";
             console.log(res);
             qlist.push(res);
-
+            rawqlist.push(finquality);
         }else if( key == "age_information"){
             console.log("was gefunden undzwar " + key);
             var innerdata = data[key]["information"];
@@ -71,6 +71,7 @@ function myfunction(){
             var res = "Die Qualität von age ist " + finquality + " ";
             console.log(res);
             qlist.push(res);
+            rawqlist.push(finquality);
         }else if (key == "income_information"){
             console.log("was gefunden undzwar " + key);
             var innerdata = data[key]["information"];
@@ -100,6 +101,7 @@ function myfunction(){
             var res = "Die Qualität von income ist " + finquality + " ";
             console.log(res);
             qlist.push(res);
+            rawqlist.push(finquality);
         }else if (key == "geography_information"){
             console.log("was gefunden undzwar " + key);
             var innerdata = data[key]["information"];
@@ -129,10 +131,18 @@ function myfunction(){
             var res = "Die Qualität von geography ist " + finquality + " ";
             console.log(res);
             qlist.push(res);
+            rawqlist.push(finquality);
         }else{}
     }
 
-    $("#q1").html(qlist);
+    var i = 0;
+    var meanq = 0;
+    for (i=0; i < rawqlist.length; i++){
+        meanq += rawqlist[i];
+    }
+    meanq = meanq/rawqlist.length;
+    console.log(meanq);
+    $("#q1").html(qlist + "Die mittlere Qualität beträgt " + meanq);
     $('#q1').css({'visibility': 'visible'});
    // var order = $('#q1').text()
     //console.log(order)
