@@ -9,9 +9,8 @@ function myfunction(){
 
 
     data = start["information"];
-    var qlist =["a","b","c"];
-    $("#q1").html(qlist);
-    $('#q1').css({'visibility': 'visible'});
+    var qlist =[];
+
     for(var key in data){
         if (key == "gender_information"){
             console.log("was gefunden undzwar " + key );
@@ -38,7 +37,11 @@ function myfunction(){
 
             var Smax = ((N-1)*m+n-m)*(1/N);
             var finquality = (Smax-S)/Smax;
-            console.log("Die Qualität ist " + finquality);
+
+            var res = "Die Qualität von gender ist " + finquality + " ";
+            console.log(res);
+            qlist.push(res);
+
         }else if( key == "age_information"){
             console.log("was gefunden undzwar " + key);
             var innerdata = data[key]["information"];
@@ -64,7 +67,10 @@ function myfunction(){
 
             var Smax = ((N-1)*m+n-m)*(1/N);
             var finquality = (Smax-S)/Smax;
-            console.log("Die Qualität ist " + finquality);
+
+            var res = "Die Qualität von age ist " + finquality + " ";
+            console.log(res);
+            qlist.push(res);
         }else if (key == "income_information"){
             console.log("was gefunden undzwar " + key);
             var innerdata = data[key]["information"];
@@ -90,7 +96,10 @@ function myfunction(){
 
             var Smax = ((N-1)*m+n-m)*(1/N);
             var finquality = (Smax-S)/Smax;
-            console.log("Die Qualität ist " + finquality);
+
+            var res = "Die Qualität von income ist " + finquality + " ";
+            console.log(res);
+            qlist.push(res);
         }else if (key == "geography_information"){
             console.log("was gefunden undzwar " + key);
             var innerdata = data[key]["information"];
@@ -116,9 +125,15 @@ function myfunction(){
 
             var Smax = ((N-1)*m+n-m)*(1/N);
             var finquality = (Smax-S)/Smax;
-            console.log("Die Qualität ist " + finquality);
+
+            var res = "Die Qualität von geography ist " + finquality + " ";
+            console.log(res);
+            qlist.push(res);
         }else{}
     }
+
+    $("#q1").html(qlist);
+    $('#q1').css({'visibility': 'visible'});
    // var order = $('#q1').text()
     //console.log(order)
     //console.log(order["gender_information"])
