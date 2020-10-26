@@ -46,26 +46,45 @@
             </div>
         </header>
         <!-- Services-->
+<section class="page-section" id="Graphy">
+     <div class="container">
+             <h3>Descriptions of the data</h3>
+
        {% autoescape off %}
         <script>
         var mydata_object = {{ data_object }};
         </script>
-        {% endautoescape %}
+         {% endautoescape %}
+
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+           <!-- <body onLoad="buildHtmlTable('#excelDataTable')">
+                <table id="excelDataTable" border="1">
+                </table>
+            </body>-->
 
         {% for key, val in data_object.information.items %}
             {{key}} : {{val}} </br>
         {% endfor %}
-
-        <button onclick="myfunction()">Show</button>
+         </br>
+         </br>
+         </br>
+       <div>
+        <button class="Button" onclick="myfunction()">Ergebnis</button></br>
         <div id="q1"></div>
+       </div>
+     </div>
+
+</section>
 
 <section class="page-section" id="Graph">
          <div class="container">
-            <div class= "left">
+
                 <canvas id="age_chart"></canvas>
                 <canvas id="gender_chart"></canvas>
                 <canvas id="income_chart"></canvas>
-                <canvas id="Geographie_chart"></canvas>
+                <canvas id="geography_chart"></canvas>
+             <div class= "left">
             </div>
          </div>
 
