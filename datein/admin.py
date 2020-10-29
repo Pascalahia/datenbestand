@@ -19,6 +19,7 @@ class DatasetForm(forms.ModelForm):
     is_age_categorical = forms.BooleanField(required=False)
     income_field = forms.CharField(required=False)
     is_income_categorical = forms.BooleanField(required=False)
+    density_field = forms.CharField(required=False, label="Temporal Density",help_text="Name of column if it is there.")
     csv_file = forms.FileField(required=True, validators=[FileExtensionValidator(allowed_extensions=['csv'])])
     information = forms.CharField(widget=forms.HiddenInput(), required=False)
     file_name = forms.CharField(widget=forms.HiddenInput(), required=False)
@@ -32,6 +33,8 @@ class DatasetForm(forms.ModelForm):
         is_age_categorical = self.cleaned_data.pop('is_age_categorical', False)
         is_income_categorical = self.cleaned_data.pop('is_income_categorical', False)
         income_field = self.cleaned_data.pop('income_field', '')
+        density_field = self.cleaned_data.pop('density_field', '')
+        is_density_categorical = self.cleaned_data.pop('is_density_categorical', False)
         delimiter = csv_module.Sniffer().sniff(csv_file.readline().decode('utf-8')).delimiter
         csv_file.seek(0)
         csv = pd.read_csv(csv_file, sep=delimiter)
@@ -70,6 +73,22 @@ class DatasetForm(forms.ModelForm):
             geography_information = value_counts.to_dict()
             information['geography_information'] = dict(information=geography_information)
 
+        if density_field != '':
+                if  is_density_categorical:
+                    density_categorical = csv[density_field]
+                else:
+                    density = csv[density_field]
+                    cut_edges = list(np.linspace(0, density.max(), 7))
+                    density_categorical = pd.cut(density, bins=cut_edges)
+                value_counts = density_categorical.value_counts()
+                density_information = json.loads(value_counts.to_json())
+                information["density_information"] = dict(information=density_information)
+
+
+            #value_counts = csv[density_field].value_counts()
+            #density_information = value_counts.to_dict()
+            #information['density_information'] = dict(information=density_information)
+
         self.cleaned_data['information'] = json.dumps(information)
 
     class Meta:
@@ -89,10 +108,6 @@ def metric(data):
     vsum = sum(ddict.values())
     res = sum([((d / vsum) ** 2) * (len(ddict.keys())) for d in ddict.values()])
     return res
-
-
-
-
 
 
 """
