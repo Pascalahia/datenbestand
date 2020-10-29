@@ -85,10 +85,6 @@ class DatasetForm(forms.ModelForm):
                 information["density_information"] = dict(information=density_information)
 
 
-            #value_counts = csv[density_field].value_counts()
-            #density_information = value_counts.to_dict()
-            #information['density_information'] = dict(information=density_information)
-
         self.cleaned_data['information'] = json.dumps(information)
 
     class Meta:
