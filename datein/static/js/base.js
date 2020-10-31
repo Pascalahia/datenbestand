@@ -1,12 +1,12 @@
 function myfunction(){
 var start = mydata_object;
     console.log(start)
-data = start["information"];
+    data = start["information"];
     var qlist =[];
     var rawqlist = [];
     for(var key in data){
         if (key == "gender_information"){
-            console.log("was gefunden und zwar " + key );
+            console.log("found something and namely " + key );
             var innerdata = data[key]["information"];
             var N = Object.keys(innerdata).length;
             var n = 0;
@@ -31,12 +31,14 @@ data = start["information"];
             var Smax = ((N-1)*m+n-m)*(1/N);
             var finquality = (Smax-S)/Smax;
 
-            var res = "Die Qualität von gender ist " + finquality + " ";
+            var res = "The quality of gender is " + finquality + " ";
             console.log(res);
             qlist.push(res);
             rawqlist.push(finquality);
-        }else if( key == "age_information"){
-            console.log("was gefunden undzwar " + key);
+
+        }
+        else if( key == "age_information"){
+            console.log("found something and namely " + key);
             var innerdata = data[key]["information"];
             var N = Object.keys(innerdata).length;
             var n = 0;
@@ -58,15 +60,32 @@ data = start["information"];
             console.log("n ist " + n);
             console.log("m ist " + m);
 
-            var Smax = ((N-1)*m+n-m)*(1/N);
+            //var Smax = ((N-1)*m+n-m)*(1/N);
+                        var preSmax = 0;
+            var j = 0;
+
+            for (var index in innerdata){
+                if (j==0){
+                preSmax= preSmax + ((n-m)**2);
+
+                } else{
+                    preSmax = preSmax + ((0-m)**2);
+                }
+                j++;
+            }
+
+            var Smax = Math.sqrt((1/N)*preSmax)
+            console.log("Smax="+Smax);
             var finquality = (Smax-S)/Smax;
 
-            var res = "Die Qualität von age ist " + finquality + " ";
+            var res = "The quality of age is " + finquality + " ";
             console.log(res);
             qlist.push(res);
             rawqlist.push(finquality);
-        }else if (key == "income_information"){
-            console.log("was gefunden undzwar " + key);
+
+        }
+        else if (key == "income_information"){
+            console.log("found something and namely " + key);
             var innerdata = data[key]["information"];
             var N = Object.keys(innerdata).length;
             var n = 0;
@@ -88,15 +107,31 @@ data = start["information"];
             console.log("n ist " + n);
             console.log("m ist " + m);
 
-            var Smax = ((N-1)*m+n-m)*(1/N);
+            var preSmax = 0;
+            var j = 0;
+
+            for (var index in innerdata){
+                if (j==0){
+                preSmax= preSmax + ((n-m)**2);
+
+                } else{
+                    preSmax = preSmax + ((0-m)**2);
+                }
+                j++;
+            }
+
+            var Smax = Math.sqrt((1/N)*preSmax)
+            console.log("Smax="+Smax);
             var finquality = (Smax-S)/Smax;
 
-            var res = "Die Qualität von income ist " + finquality + " ";
+            var res = "The quality of income is " + finquality + " ";
             console.log(res);
             qlist.push(res);
             rawqlist.push(finquality);
-        }else if (key == "geography_information"){
-            console.log("was gefunden undzwar " + key);
+
+        }
+        else if (key == "geography_information"){
+            console.log("found something and namely " + key);
             var innerdata = data[key]["information"];
             var N = Object.keys(innerdata).length;
             var n = 0;
@@ -112,20 +147,80 @@ data = start["information"];
                 innerS = innerS + ((innerdata[index]-m)**2);
             }
             var S = Math.sqrt((1/N)*innerS)
+            console.log((data[key]["information"]));
+            console.log("N ist " + N);
+            console.log("n ist " + n);
+            console.log("m ist " + m);
+
+            var preSmax = 0;
+            var j = 0;
+
+            for (var index in innerdata){
+                if (j==0){
+                preSmax= preSmax + ((n-m)**2);
+
+                } else{
+                    preSmax = preSmax + ((0-m)**2);
+                }
+                j++;
+            }
+
+            var Smax = Math.sqrt((1/N)*preSmax)
+            console.log("Smax="+Smax);
+            var finquality = (Smax-S)/Smax;
+
+            var res = "The quality of geography is " + finquality + " ";
+            console.log(res);
+            qlist.push(res);
+            rawqlist.push(finquality);
+
+        }
+        else if (key == "density_information"){
+            console.log("found something and namely " + key);
+            var innerdata = data[key]["information"];
+            var N = Object.keys(innerdata).length;
+            var n = 0;
+            var innerS = 0;
+
+            for (var index in innerdata ){
+                n = n+ innerdata[index];
+            }
+
+            var m = n/N;
+           // var M = Math.floor(m)
+            for (var index in innerdata ){
+                innerS = innerS + ((innerdata[index]-m)**2);
+            }
+            var S = Math.sqrt((1/N)*innerS)
             console.log(S);
             console.log((data[key]["information"]));
             console.log("N ist " + N);
             console.log("n ist " + n);
             console.log("m ist " + m);
 
-            var Smax = ((N-1)*m+n-m)*(1/N);
-            var finquality = (Smax-S)/Smax;
+            var preSmax = 0;
+            var j = 0;
 
-            var res = "Die Qualität von geography ist " + finquality + " ";
+            for (var index in innerdata){
+                if (j==0){
+                preSmax= preSmax + ((n-m)**2);
+
+                } else{
+                    preSmax = preSmax + ((0-m)**2);
+                }
+                j++;
+            }
+
+            var Smax = Math.sqrt((1/N)*preSmax)
+            console.log("Smax="+Smax);
+            var finquality = (Smax-S)/Smax;
+            console.log(Smax);
+            var res = "The quality of density is " + finquality + " ";
             console.log(res);
             qlist.push(res);
             rawqlist.push(finquality);
-        }else{}
+        }
+        else{}
     }
 
     var i = 0;
@@ -135,12 +230,32 @@ data = start["information"];
     }
     meanq = meanq/rawqlist.length;
     console.log(meanq);
-    $("#q1").html(qlist + "Die mittlere Qualität beträgt " + meanq);
+    $("#q1").html(qlist + "The average quality is " + meanq);
     $('#q1').css({'visibility': 'visible'});
+    return meanq;
     }
 
 
 
+
+function quality(){
+    var valeur= myfunction();
+    alert(valeur)
+
+
+   /* var gesamtQ = 0;
+    var j = 0;
+    var counter = data.length
+    var pretotal =0;
+    if (counter=0){
+        gesamtQ= 0;
+    } else {
+      gesamtQ=
+
+    }*/
+
+
+}
 
 
 

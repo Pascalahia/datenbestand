@@ -56,9 +56,9 @@
         </script>
          {% endautoescape %}
 
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-           <!-- <body onLoad="buildHtmlTable('#excelDataTable')">
+            <body onLoad="buildHtmlTable('#excelDataTable')">
                 <table id="excelDataTable" border="1">
                 </table>
             </body>-->
@@ -66,14 +66,19 @@
         {% for key, val in data_object.information.items %}
             {{key}} : {{val}} </br>
         {% endfor %}
-         </br>
-         </br>
-         </br>
-       <div>
-        <button class="Button" onclick="myfunction()">Ergebnis</button></br>
-        <div id="q1"></div>
-       </div>
-     </div>
+
+        </div>
+</section>
+
+<section class="page-section" id="Evaluation">
+         <div>
+            <button class="Button" onclick="myfunction()">Result</button></br>
+
+             <button class="Buttonn" onclick="quality()">Quality</button></br>
+            <p id="demo"></p>
+            <div id="q1"></div>
+         </div>
+
 
 </section>
 
@@ -84,11 +89,11 @@
                 <canvas id="gender_chart"></canvas>
                 <canvas id="income_chart"></canvas>
                 <canvas id="geography_chart"></canvas>
+                <canvas id="density_chart"></canvas>
              <div class= "left">
             </div>
          </div>
-
-    </section>
+</section>
 
 
         <!-- Footer-->

@@ -49,14 +49,29 @@
         <section class="page-section" id="services">
             <div class="container">
                 <div class="text-center">
-                   <div id=" inf_bag">
+                   <div id=" inf_bag1">
                     <ul>
-                        <h3>Hier sind die hochgeladene Daten! </h3>
+                        <h3>Here are the uploaded data! </h3>
                     {% for d in data %}
                        <li><a href="detail/{{d.id}}">{{d.name}}</a></li>
                     {% endfor %}
                     </ul>
                    </div>
+
+
+                    <div id="inf_bag2">
+                        {% autoescape off %}
+                             <script>
+                                var mydata_object = {{ data }};
+                             </script>
+                        {% endautoescape %}
+
+                        <h3>This ist the actual Total Quality </h3>
+
+                        <button class="Buttonn" onclick="quality()">Quality</button></br>
+                             <div id="Quali"></div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -67,7 +82,7 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted">Les experts en analyse de base de donnée.</h3>
                 </div>
                 <form id="contactForm" name="sentMessage" novalidate="novalidate">
                     <div class="row align-items-stretch mb-5">
