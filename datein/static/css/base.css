@@ -23,8 +23,9 @@ background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 10
   cursor: pointer;
   outline: none;
   position: relative;
-  left: 300px;
-  top: -50px;
+  padding: 10px;
+  /*left: 300px;
+  top: 50px;*/
 }
 
 .Button::before {

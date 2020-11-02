@@ -8,8 +8,16 @@ import json
 
 
 def index(request):
-    data = Dataset.objects.all().values('id', 'name')
-    context = dict(data=data)
+    data = Dataset.objects.all().values()
+    result = []
+    for data_object in data:
+        for key, val in data_object.items():
+            try:
+                data_object[key] = json.loads(val)
+            except Exception:
+                continue
+        result.append(data_object)
+    context = dict(data=result)
     return render(request, 'datein/index.html', context)
 
 
@@ -33,5 +41,4 @@ def get_data(request, pk=None):
             continue
     return JsonResponse(data=dict(information=data_object))
 
-#  return HttpResponse("Hello, this my first views for the statistic")
-# Create your views here.
+

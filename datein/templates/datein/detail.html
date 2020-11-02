@@ -25,14 +25,15 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{% static 'Boostrap/assets/img/iss.PNG' %}" alt="" /></a>
+                <a class="navbar-brand js-scroll-trigger" href=" "><img src="{% static 'Boostrap/assets/img/ISS_datasciense2-removebg.png' %}" alt="" /></a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ml-1"></i>
                 </button>
                <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Describe">Description</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#Graph">Histogramme</a></li>
                     </ul>
                 </div>
             </div>
@@ -41,12 +42,12 @@
         <header class="masthead">
             <div class="container">
                 <div class="masthead-subheading">Welcome to our web App!</div>
-                <div class="masthead-heading text-uppercase"> you will get in a few moment informations about your Data</div>
-                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+                <div class="masthead-heading text-uppercase"> you will get in a few moment details about your Data</div>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#Describe">Show Me More</a>
             </div>
         </header>
         <!-- Services-->
-<section class="page-section" id="Graphy">
+<section class="page-section" id="Describe">
      <div class="container">
              <h3>Descriptions of the data</h3>
 
@@ -56,12 +57,6 @@
         </script>
          {% endautoescape %}
 
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-            <body onLoad="buildHtmlTable('#excelDataTable')">
-                <table id="excelDataTable" border="1">
-                </table>
-            </body>-->
 
         {% for key, val in data_object.information.items %}
             {{key}} : {{val}} </br>
@@ -71,13 +66,17 @@
 </section>
 
 <section class="page-section" id="Evaluation">
-         <div>
-            <button class="Button" onclick="myfunction()">Result</button></br>
-
-             <button class="Buttonn" onclick="quality()">Quality</button></br>
-            <p id="demo"></p>
-            <div id="q1"></div>
-         </div>
+    <div class="container">
+        <div class="container">
+            <div class="text-center">
+                <div>
+                    <button class="Button" onclick="myfunction(mydata_object, true)">Result</button></br>
+                    </br></br>
+                    <div id="q1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 </section>
@@ -100,7 +99,7 @@
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-left">Copyright © Operation Barakuda 2020</div>
+                    <div class="col-lg-4 text-lg-left">Copyright © Projektarbeit 2020</div>
                     <div class="col-lg-4 my-3 my-lg-0">
                         <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>

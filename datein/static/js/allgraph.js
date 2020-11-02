@@ -13,7 +13,7 @@ function get_data(id) {
             data: {
                 labels: labels,
                 datasets: [{
-                    label: '# of Votes',
+                    label: 'Age Chart',
                     data: final_data,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -65,7 +65,7 @@ function get_data2(id) {
             data: {
                 labels: labels,
                 datasets: [{
-                    label: '# of Votes',
+                    label: 'Gender Chart',
                     data: final_data,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -117,7 +117,7 @@ function get_data3(id) {
             data: {
                 labels: labels,
                 datasets: [{
-                    label: '# of Votes',
+                    label: 'Income Chart',
                     data: final_data,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -168,7 +168,7 @@ function get_data4(id) {
             data: {
                 labels: labels,
                 datasets: [{
-                    label: '# of Votes',
+                    label: 'Geography Chart',
                     data: final_data,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -219,7 +219,7 @@ function get_data5(id) {
             data: {
                 labels: labels,
                 datasets: [{
-                    label: '# of Votes',
+                    label: 'Density Chart',
                     data: final_data,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',

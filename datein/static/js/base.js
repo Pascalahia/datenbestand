@@ -1,5 +1,5 @@
-function myfunction(){
-var start = mydata_object;
+function myfunction(original_data, show){
+    var start = {...original_data};
     console.log(start)
     data = start["information"];
     var qlist =[];
@@ -230,31 +230,12 @@ var start = mydata_object;
     }
     meanq = meanq/rawqlist.length;
     console.log(meanq);
-    $("#q1").html(qlist + "The average quality is " + meanq);
-    $('#q1').css({'visibility': 'visible'});
+//    debugger;
+    if(show) {
+        $("#q1").html(qlist + "The average quality is " + meanq);
+        $('#q1').css({'visibility': 'visible'});
+    }
     return meanq;
-    }
-
-
-
-
-function quality(){
-    var valeur= myfunction();
-    alert(valeur)
-
-
-   /* var gesamtQ = 0;
-    var j = 0;
-    var counter = data.length
-    var pretotal =0;
-    if (counter=0){
-        gesamtQ= 0;
-    } else {
-      gesamtQ=
-
-    }*/
-
-
 }
 
 
@@ -265,45 +246,3 @@ function quality(){
 
 
 
-//var myList = [
- // { "name": "abc", "age": 50 },
- // { "age": "25", "hobby": "swimming" },
-  //{ "name": "xyz", "hobby": "programming" }
-//];
-
-// Builds the HTML Table out of myList.
-
-/*function buildHtmlTable(selector) {
-  var columns = addAllColumnHeaders(data_object.information.items, selector);
-
-  for (var i = 0; i < data_object.information.items.length; i++) {
-    var row$ = $('<tr/>');
-    for (var colIndex = 0; colIndex < columns.length; colIndex++) {
-      var cellValue = data_object.information.items[i][columns[colIndex]];
-      if (cellValue == null) cellValue = "";
-      row$.append($('<td/>').html(cellValue));
-    }
-    $(selector).append(row$);
-  }
-}
-
-// Adds a header row to the table and returns the set of columns.
-// Need to do union of keys from all records as some records may not contain
-// all records.
-function addAllColumnHeaders(data_object.information.items, selector) {
-  var columnSet = [];
-  var headerTr$ = $('<tr/>');
-
-  for (var i = 0; i < data_object.information.items.length; i++) {
-    var rowHash = data_object.information.items[i];
-    for (var key in rowHash) {
-      if ($.inArray(key, columnSet) == -1) {
-        columnSet.push(key);
-        headerTr$.append($('<th/>').html(key));
-      }
-    }
-  }
-  $(selector).append(headerTr$);
-
-  return columnSet;
-}*/
