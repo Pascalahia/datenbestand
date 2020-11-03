@@ -238,7 +238,15 @@ function myfunction(original_data, show){
     return meanq;
 }
 
-
+function quality(full_data){
+    let total_quality = 0;
+    for (var i = 0; i< full_data.length; i++){
+        total_quality+= myfunction(full_data[i],false)
+    }
+    let total_average = total_quality/ full_data.length;
+    $("#Quali").html("The averae quality of this groupe of data is " + total_average);
+    $("#Quali").css({'visiblility': 'visible'});
+}
 
 
 

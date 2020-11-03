@@ -47,23 +47,16 @@
             </div>
         </header>
         <!-- Services-->
-<section class="page-section" id="Describe">
-     <div class="container">
-             <h3>Descriptions of the data</h3>
-
-       {% autoescape off %}
-        <script>
-        var mydata_object = {{ data_object }};
-        </script>
-         {% endautoescape %}
-
-
-        {% for key, val in data_object.information.items %}
-            {{key}} : {{val}} </br>
-        {% endfor %}
-
-        </div>
+<section class="page-section" id="Graph">
+    <div class="container">
+        <canvas id="age_chart"></canvas>
+        <canvas id="gender_chart"></canvas>
+        <canvas id="income_chart"></canvas>
+        <canvas id="geography_chart"></canvas>
+        <canvas id="density_chart"></canvas>
+    </div>
 </section>
+
 
 <section class="page-section" id="Evaluation">
     <div class="container">
@@ -81,17 +74,22 @@
 
 </section>
 
-<section class="page-section" id="Graph">
-         <div class="container">
+        <section class="page-section" id="Describe">
+     <div class="container">
+             <h3>Descriptions of the data</h3>
 
-                <canvas id="age_chart"></canvas>
-                <canvas id="gender_chart"></canvas>
-                <canvas id="income_chart"></canvas>
-                <canvas id="geography_chart"></canvas>
-                <canvas id="density_chart"></canvas>
-             <div class= "left">
-            </div>
-         </div>
+       {% autoescape off %}
+        <script>
+        var mydata_object = {{ data_object }};
+        </script>
+         {% endautoescape %}
+
+
+        {% for key, val in data_object.information.items %}
+            {{key}} : {{val}} </br>
+        {% endfor %}
+
+        </div>
 </section>
 
 
