@@ -61,7 +61,7 @@ function myfunction(original_data, show){
             console.log("m ist " + m);
 
             //var Smax = ((N-1)*m+n-m)*(1/N);
-                        var preSmax = 0;
+            var preSmax = 0;
             var j = 0;
 
             for (var index in innerdata){
@@ -244,7 +244,7 @@ function quality(full_data){
         total_quality+= myfunction(full_data[i],false)
     }
     let total_average = total_quality/ full_data.length;
-    $("#Quali").html("The averae quality of this groupe of data is " + total_average);
+    $("#Quali").html("The average quality of this groupe of data is " + total_average);
     $("#Quali").css({'visiblility': 'visible'});
 }
 
