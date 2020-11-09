@@ -31,7 +31,7 @@ function myfunction(original_data, show){
             var Smax = ((N-1)*m+n-m)*(1/N);
             var finquality = (Smax-S)/Smax;
 
-            var res = "The quality of gender is " + finquality + " ";
+            var res = "<br> The quality of gender is " + finquality + " ";
             console.log(res);
             qlist.push(res);
             rawqlist.push(finquality);
@@ -78,7 +78,7 @@ function myfunction(original_data, show){
             console.log("Smax="+Smax);
             var finquality = (Smax-S)/Smax;
 
-            var res = "The quality of age is " + finquality + " ";
+            var res = "<br>The quality of age is " + finquality + " ";
             console.log(res);
             qlist.push(res);
             rawqlist.push(finquality);
@@ -124,7 +124,7 @@ function myfunction(original_data, show){
             console.log("Smax="+Smax);
             var finquality = (Smax-S)/Smax;
 
-            var res = "The quality of income is " + finquality + " ";
+            var res = "<br> The quality of income is " + finquality + " ";
             console.log(res);
             qlist.push(res);
             rawqlist.push(finquality);
@@ -169,7 +169,7 @@ function myfunction(original_data, show){
             console.log("Smax="+Smax);
             var finquality = (Smax-S)/Smax;
 
-            var res = "The quality of geography is " + finquality + " ";
+            var res = "<br>The quality of geography is " + finquality + " ";
             console.log(res);
             qlist.push(res);
             rawqlist.push(finquality);
@@ -211,11 +211,11 @@ function myfunction(original_data, show){
                 j++;
             }
 
-            var Smax = Math.sqrt((1/N)*preSmax)
+            var Smaxi = Math.sqrt((1/N)*preSmax)
             console.log("Smax="+Smax);
             var finquality = (Smax-S)/Smax;
             console.log(Smax);
-            var res = "The quality of density is " + finquality + " ";
+            var res = "<br> The quality of density is " + finquality + " ";
             console.log(res);
             qlist.push(res);
             rawqlist.push(finquality);
@@ -229,10 +229,11 @@ function myfunction(original_data, show){
         meanq += rawqlist[i];
     }
     meanq = meanq/rawqlist.length;
+    var meanqualy = parseFloat(meanq).toFixed(2);
     console.log(meanq);
-//    debugger;
+
     if(show) {
-        $("#q1").html(qlist + "The average quality is " + meanq);
+        $("#q1").html(qlist.join(',') + ",<br><b>The average quality is " + meanqualy+ "</b>");
         $('#q1').css({'visibility': 'visible'});
     }
     return meanq;
@@ -243,8 +244,9 @@ function quality(full_data){
     for (var i = 0; i< full_data.length; i++){
         total_quality+= myfunction(full_data[i],false)
     }
-    let total_average = total_quality/ full_data.length;
-    $("#Quali").html("The average quality of this groupe of data is " + total_average);
+    let total_average = parseFloat(total_quality/ full_data.length).toFixed(2);
+
+    $("#Quali").html("<b>The average quality of this groupe of data is " + total_average+ "</b>");
     $("#Quali").css({'visiblility': 'visible'});
 }
 
